@@ -7,14 +7,8 @@ import { Recipe } from '../recipe'
 })
 export class RecipeDetailComponent implements OnInit {
   selectedRecipe: Recipe;
-
   constructor() { }
 
   ngOnInit() {
   }
-
-  onSelected(recipe: Recipe) {
-    
-  }
-
 }
