@@ -1,16 +1,21 @@
-import { Directive, HostListener, HostBinding } from '@angular/core';
+import { Directive, HostListener, HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[highlight1]'
 })
 export class Highlight1Directive {
+  
+  @Input() defaultColor = 'white';
+  @Input() highlightColor = 'green';
+
+  private backgroundColor = this.defaultColor;
 
   @HostListener('mouseenter') onmouseover(){
-    this.backgroundColor = 'green';
+    this.backgroundColor = this.highlightColor;
   };
 
   @HostListener('mouseleave') onmouseleave() {
-    this.backgroundColor = 'white';
+    this.backgroundColor = this.defaultColor;
   };
 
   @HostListener('click', ['$event']) onclick(event) {
@@ -20,9 +25,6 @@ export class Highlight1Directive {
   @HostBinding('style.backgroundColor') get setColor() {
     return this.backgroundColor;
   };
-
-  private backgroundColor = 'white';
   
-  constructor() { }
- 
+  constructor() { } 
 }
