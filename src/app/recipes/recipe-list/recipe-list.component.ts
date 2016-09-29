@@ -6,9 +6,12 @@ import { Recipe } from '../recipe'
   templateUrl: './recipe-list.component.html'
 })
 export class RecipeListComponent implements OnInit {
-  recipies: Recipe[] = [];
+  recipes: Recipe[] = [
+    new Recipe("Recipe 1", "Recipe 1 Description", "http://images.media-allrecipes.com/userphotos/250x250/00/12/51/125180.jpg",[]),
+    new Recipe("Recipe 2", "Recipe 2 Description", "http://www.cheaprecipeblog.com/wp-content/uploads/2013/02/Indian-Pea-and-Potato-Curry-Aloo-Matar-Recipe-2.jpg",[])
+  ];
   @Output() recipeSelected = new EventEmitter<Recipe>();  
-  recipe = new Recipe("Dummy", "Dummy", "https://images-na.ssl-images-amazon.com/images/I/31d%2B43nQJCL._SY300_.jpg");
+  
   constructor() { }
 
   ngOnInit() {
